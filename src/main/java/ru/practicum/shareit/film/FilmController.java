@@ -18,8 +18,8 @@ import java.util.List;
 @Slf4j
 public class FilmController {
     private int lastId = 0;
-    final int MAX_LENGTH_DESCRIPTION = 200;
-    final LocalDate MIN_DATE_RELEASE = LocalDate.of(1895, 12, 28);
+    final int MAXLENGTHDESCRIPTION = 200;
+    final LocalDate MINDATERELEASE = LocalDate.of(1895, 12, 28);
     private List<Film> films = new ArrayList<>();
 
     @PostMapping("/films")
@@ -64,8 +64,8 @@ public class FilmController {
 
     private void validate(Film film) throws ValidationException {
         if (film.getName().isBlank()
-                || film.getDescription().length() > MAX_LENGTH_DESCRIPTION
-                || film.getReleaseDate().isBefore(MIN_DATE_RELEASE)
+                || film.getDescription().length() > MAXLENGTHDESCRIPTION
+                || film.getReleaseDate().isBefore(MINDATERELEASE)
                 || film.getDuration().isNegative()) {
             throw new ValidationException("Некорректно заполнена информация о фильме");
         }

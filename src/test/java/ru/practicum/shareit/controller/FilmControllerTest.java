@@ -24,9 +24,9 @@ public class FilmControllerTest {
 
     @Test
     void postFilmCorrected() {
-        Film film = Film.builder().
-                id(1).
-                name("Достать баги")
+        Film film = Film.builder()
+                .id(1)
+                .name("Достать баги")
                 .description("Тестер вышел на охоту в поисках криворукого программиста, который душит код багами")
                 .releaseDate(LocalDate.of(2023, 07, 20))
                 .duration(Duration.ofMinutes(120)).build();
@@ -36,9 +36,9 @@ public class FilmControllerTest {
 
     @Test
     void postFilmWithIncorrect() {
-        Film film = Film.builder().
-                id(1).
-                name("")
+        Film film = Film.builder()
+                .id(1)
+                .name("")
                 .description("Тестер вышел на охоту в поисках криворукого программиста, который душит код багами")
                 .releaseDate(LocalDate.of(2023, 07, 20))
                 .duration(Duration.ofMinutes(120)).build();
@@ -48,9 +48,9 @@ public class FilmControllerTest {
 
     @Test
     void getFilms() {
-        Film film = Film.builder().
-                id(1).
-                name("Достать баги")
+        Film film = Film.builder()
+                .id(1)
+                .name("Достать баги")
                 .description("Тестер вышел на охоту в поисках криворукого программиста, который душит код багами")
                 .releaseDate(LocalDate.of(2023, 07, 20))
                 .duration(Duration.ofMinutes(120)).build();
@@ -60,9 +60,9 @@ public class FilmControllerTest {
 
     @Test
     void putFilm() {
-        Film film = Film.builder().
-                id(1).
-                name("Достать баги")
+        Film film = Film.builder()
+                .id(1)
+                .name("Достать баги")
                 .description("Тестер вышел на охоту в поисках криворукого программиста, который душит код багами")
                 .releaseDate(LocalDate.of(2023, 07, 20))
                 .duration(Duration.ofMinutes(120)).build();
@@ -72,9 +72,9 @@ public class FilmControllerTest {
 
     @Test
     void putFilmWithIncorrect() {
-        Film film = Film.builder().
-                id(1).
-                name("")
+        Film film = Film.builder()
+                .id(1)
+                .name("")
                 .description("Тестер вышел на охоту в поисках криворукого программиста, который душит код багами")
                 .releaseDate(LocalDate.of(2023, 07, 20))
                 .duration(Duration.ofMinutes(120)).build();
