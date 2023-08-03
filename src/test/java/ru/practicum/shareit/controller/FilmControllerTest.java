@@ -1,12 +1,11 @@
-package ru.yandex.practicum.filmorate.controller;
+package ru.practicum.shareit.controller;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
-import ru.yandex.practicum.filmorate.model.Film;
-import ru.yandex.practicum.filmorate.model.User;
+import ru.practicum.shareit.film.Film;
+import ru.practicum.shareit.film.FilmController;
 
 import java.time.Duration;
 import java.time.LocalDate;

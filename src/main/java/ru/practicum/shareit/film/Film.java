@@ -1,7 +1,6 @@
-package ru.yandex.practicum.filmorate.model;
+package ru.practicum.shareit.film;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Value;
 
 import java.time.Duration;
