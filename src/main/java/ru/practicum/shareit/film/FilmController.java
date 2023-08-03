@@ -18,8 +18,8 @@ import java.util.List;
 @Slf4j
 public class FilmController {
     private int lastId = 0;
-    final static int MAX_LENGTH_DESCRIPTION = 200;
-    final static LocalDate MIN_DATE_RELEASE = LocalDate.of(1895, 12, 28);
+    final int MAX_LENGTH_DESCRIPTION = 200;
+    final LocalDate MIN_DATE_RELEASE = LocalDate.of(1895, 12, 28);
     private List<Film> films = new ArrayList<>();
 
     @PostMapping("/films")
