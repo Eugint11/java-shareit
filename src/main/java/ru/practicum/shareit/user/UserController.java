@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.shareit.exception.ValidationException;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,8 @@ public class UserController {
     private List<User> users = new ArrayList<>();
     private int lastId = 0;
 
-    @PostMapping("/users")
-    public ResponseEntity<String> postUser(@RequestBody User user) {
+    @PostMapping
+    public ResponseEntity<String> postUser(@Valid @RequestBody User user) {
         try {
             validate(user);
             User newUser = user.toBuilder().id(getLastId()).build();
@@ -30,13 +31,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<List<User>> getUsers() {
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
     }
 
-    @PutMapping("/users/")
-    public ResponseEntity<String> putUser(@RequestBody User user) {
+    @PutMapping(path = "/users/")
+    public ResponseEntity<String> putUser(@Valid @RequestBody User user) {
         try {
             validate(user);
             for (User oldUser : users) {

@@ -4,26 +4,25 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import ru.practicum.shareit.exception.ValidationException;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
 @Slf4j
+@Controller
+@RequestMapping(path = "/films")
 public class FilmController {
     private int lastId = 0;
     final int maxLengthDescription = 200;
     final LocalDate minDateRelease = LocalDate.of(1895, 12, 28);
     private List<Film> films = new ArrayList<>();
 
-    @PostMapping("/films")
-    public ResponseEntity<String> postFilm(@RequestBody Film film) {
+    @PostMapping
+    public ResponseEntity<String> postFilm(@Valid @RequestBody Film film) {
         try {
             validate(film);
             Film newFilm = film.toBuilder().id(getLastId()).build();
@@ -36,13 +35,13 @@ public class FilmController {
         }
     }
 
-    @GetMapping("/films")
+    @GetMapping
     public ResponseEntity<List<Film>> getFilms() {
         return new ResponseEntity<List<Film>>(films, HttpStatus.OK);
     }
 
-    @PutMapping("/films/")
-    public ResponseEntity<String> putFilm(@RequestBody Film film) {
+    @PutMapping(path = "/films/")
+    public ResponseEntity<String> putFilm(@Valid @RequestBody Film film) {
         try {
             validate(film);
             for (Film oldFilm : films) {

@@ -7,15 +7,19 @@ package ru.practicum.shareit.user;
 import lombok.Builder;
 import lombok.Value;
 
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Builder(toBuilder = true)
 @Value
 public class User {
     int id;
+    @NotNull @NotBlank @Email
     String email;
+    @NotNull @NotBlank @Pattern(regexp = "/^\\S\\z/")
     String login;
     String name;
+    @PastOrPresent
     LocalDate birthday;
 
     public String toString(User user) {
